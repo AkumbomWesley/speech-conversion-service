@@ -1,7 +1,7 @@
 from gtts import gTTS
 from pygame import mixer
 
-def convert_tex_to_speech(text, output_file_path):
+def convert_text_to_speech(text, output_file_path):
     tts = gTTS(text, lang='en')
     tts.save(output_file_path)
 

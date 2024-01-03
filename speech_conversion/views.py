@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .text_to_speech import convert_tex_to_speech, play_audio_file
+from .text_to_speech import convert_text_to_speech, play_audio_file
 from .speech_to_text import convert_speech_to_text
 
 @csrf_exempt
@@ -8,8 +8,10 @@ def text_to_speech(request):
     if request.method == 'POST':
         text = request.POST.get('text')
         output_file_path = 'output.mp3'
-        convert_speech_to_text(text, output_file_path)
+        convert_text_to_speech(text, output_file_path)
         return JsonResponse({"audio_file": output_file_path})
+    
+    return JsonResponse({'error': 'Invalid request method'})
 
 @csrf_exempt
 def speech_to_text(request):

@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('speech_conversion.urls'))
+    path('speech_conversion/', include('speech_conversion.urls'))
 ]
